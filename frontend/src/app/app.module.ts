@@ -13,6 +13,8 @@ import { TeacherComponent } from './teacher/teacher.component';
 import { UserComponent } from './user/user.component';
 import { LocationComponent } from './location/location.component';
 
+import { UserService } from './user.service';
+
 const routes: Routes = [
   { path: '', component: InstrumentComponent, pathMatch: 'full' },
   { path: 'instrument', component: InstrumentComponent },
@@ -38,7 +40,9 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

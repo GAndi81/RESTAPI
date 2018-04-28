@@ -77,7 +77,13 @@ router.get('/:table/:id', function (req, res, next) {
                 return res.sendStatus(404);
             }
             // TODO: find entity by _id.
-            res.send(jsonData);
+            for (let i = 0; i < jsonData.length; i++) {
+                let obj = jsonData[i];
+                if (obj._id === req.params.id) {
+                    res.send(obj);
+                    return;
+                }
+            }
         });
 });
 
