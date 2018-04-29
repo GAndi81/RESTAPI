@@ -1,20 +1,8 @@
 [{
-    "{\n\"name\": \"Szarka Péter\",\n\"email\": \"szp@gmail.com\",\n\"job\": \"programmer\",\n\"address\": \"Sopron\"}": "",
-    "_id": "pu4rjizk3msJ0GpiCa0370aNuzvt20skB3HCaBGpbiA3Bc"
-}, {
-    "_id": "CkbnAo9or1heBfvL9vbN0fNrJFF2bv2KD99h8bogoFFCll"
-}, {
-    "name": "Antal Mari",
-    "email": "am@gmail.com",
-    "job": "programmer",
-    "address": "Sopron",
-    "_id": "22ggko1B67fMBHtuKfvs94s02niAnkDa1BJ52hE9a976jb"
-}, {
-    "name": "Antal Mari",
-    "email": "am@gmail.com",
-    "job": "programmer",
-    "address": "Sopron",
-    "_id": "eL2JE6b0bILF4hgJ2LzIlK341lGagKCH944uKm093dnhF5"
+    "name": "Pocsik Maria",
+    "email": "pa@freemail.com",
+    "job": "teacher",
+    "address": "Miskolc"
 }, {
     "name": "Antal Mari",
     "email": "am@gmail.com",
@@ -22,9 +10,11 @@
     "address": "Sopron",
     "_id": "1M8BznD5Aga1Nfk0kKhmJ5v9z4ggo8uDfBn1A4cvpMFf5C"
 }, {
-    "name": "Bakonyvári Andor",
-    "email": "ba@yahoo.com",
-    "job": "tourist guide",
-    "address": "Zirc",
-    "_id": "LeaNCeaapKj2FJr4J0ripuoHIMIm72uLhcpEt8KgM7foH4"
+    "{\"name\": \"Börcsök Betti\",\n\"email\": \"bb@freemail.com\",\n\"job\": \"student\",\n\"address\": \"Pécs\"}": ""
+}, {
+    "name": "Pribeli Moni",
+    "email": "pm@freemail.com",
+    "job": "doctor",
+    "address": "Hajmáskér",
+    "_id": "Km5iAiMIFAdslACK4lbmoeEpJjI38kHpF7Feb7pN3umkkz"
 }]

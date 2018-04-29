@@ -74,16 +74,18 @@ router.get('/:table/:id', function (req, res, next) {
         'utf8', (err, jsonData) => {
             if (err) {
                 console.error(err);
-                return res.sendStatus(404);
+                return res.sendStatus(500);
             }
             // TODO: find entity by _id.
+            jsonData = JSON.parse(jsonData);
             for (let i = 0; i < jsonData.length; i++) {
                 let obj = jsonData[i];
-                if (obj._id === req.params.id) {
-                    res.send(obj);
-                    return;
+                console.log(obj);
+                if (obj._id == req.params.id) {
+                    return res.send(obj);
                 }
             }
+            return res.sendStatus(404);
         });
 });
 
@@ -97,34 +99,43 @@ router.put('/:table/:id', function (req, res, next) {
         'utf8', (err, jsonData) => {
             if (err) {
                 console.error(err);
-                return res.sendStatus(404);
+                return res.sendStatus(500);
             }
+            // Update 
             jsonData = JSON.parse(jsonData);
-            req.body._id = genID();
-            jsonData.push(req.body);
+            for (let i = 0; i < jsonData.length; i++) {
+                if (jsonData[i]._id === req.params.id) {
+                    jsonData[i] = req.body;
+                    fs.writeFileSync(filePath, JSON.stringify(jsonData), 'utf8');
+                    return res.json(jsonData[i]);
+                }
+            }
 
-            fs.writeFileSync(filePath, JSON.stringify(jsonData), 'utf8');
-            res.json(req.body);
+            return res.sendStatus(404);
         });
 });
 
 // Delete an object from json array
 
 router.delete('/:table/:id', function (req, res, next) {
-    const filePath = getDBPath(req.params.table);
     fs.readFile(
         getDBPath(req.params.table),
         'utf8', (err, jsonData) => {
             if (err) {
                 console.error(err);
-                return res.sendStatus(404);
+                return res.sendStatus(500);
             }
+            // TODO: delete entity by _id.
             jsonData = JSON.parse(jsonData);
-            req.body._id = genID();
-            jsonData.push(req.body);
+            let newArray = [];
+            for (let i = 0; i < jsonData.length; i++) {
+                let obj = jsonData[i];
+                if (obj._id == req.params.id) {
 
-            fs.writeFileSync(filePath, JSON.stringify(jsonData), 'utf8');
-            res.json(req.body);
+                    return 'Object deleted';
+                }
+            }
+            return res.sendStatus(404);
         });
 });
 
