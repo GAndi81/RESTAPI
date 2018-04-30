@@ -130,14 +130,14 @@ router.delete('/:table/:id', function (req, res, next) {
             // TODO: delete entity by _id.
             jsonData = JSON.parse(jsonData);
             let newArray = [];
+
             for (let i = 0; i < jsonData.length; i++) {
                 if (jsonData[i]._id != req.params.id) {
                     newArray.push(jsonData[i]);
-                    fs.writeFileSync(filePath, JSON.stringify(newArray), 'utf8');
-                    return res.json(newArray);
                 }
             }
-            return res.send();
+            fs.writeFileSync(filePath, JSON.stringify(newArray), 'utf8');
+            return res.send('Object deleted.');
         });
 });
 
