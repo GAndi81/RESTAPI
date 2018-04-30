@@ -131,7 +131,7 @@ router.delete('/:table/:id', function (req, res, next) {
             jsonData = JSON.parse(jsonData);
             let newArray = [];
             for (let i = 0; i < jsonData.length; i++) {
-                if (jsonData[i]._id !== req.params.id) {
+                if (jsonData[i]._id != req.params.id) {
                     newArray.push(jsonData[i]);
                     fs.writeFileSync(filePath, JSON.stringify(newArray), 'utf8');
                     return res.json(newArray);
