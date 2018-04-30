@@ -1,3 +1,35 @@
-<p>
-  location works!
-</p>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="table">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>City</th>
+              <th>Address</th>
+              <th>ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            <td>
+              <div>
+                <button type="button" (click)="dataAdd(newRow)" class="btn btn-info btn-block"> Create New Location</button>
+              </div>
+            </td>
+            <tr *ngFor="let location of locations">
+              <td>{{location.city}}</td>
+              <td>{{location.address}}</td>
+              <td>{{location._id}}</td>
+              <td>
+                <div class="btn-group btn-block">
+                  <button (click)="dataUpdate(location)" class="btn btn-secondary">Update</button>
+                  <button (click)="dataDelete(location)" class="btn btn-info">Delete</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div>

@@ -1,0 +1,15 @@
+thead:hover {
+  cursor: pointer;
+}
+
+thead {
+  text-align: center;
+}
+
+.table {
+  box-shadow: 10px 10px 40px 10px rgba(184, 241, 237, 0.541);
+}
+
+.td {
+  color: rgba(81, 190, 183, 0.541);
+}

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { Headers, RequestOptions } from '@angular/http';
+import { Location } from '../location';
+import { LocationService } from '../location.service';
 
 @Component({
   selector: 'app-location',
@@ -7,9 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocationComponent implements OnInit {
 
-  constructor() { }
+  locations: Location[];
+
+  constructor(private http: HttpClient,
+    private locationService: LocationService) { }
 
   ngOnInit() {
+    this.locationService.getLocations().subscribe(locations => {
+      this.locations = locations;
+    });
   }
 
 }

@@ -1,13 +1,1 @@
-[{
-    "name": "Börcsök Botond",
-    "email": "bb@yahoo.com",
-    "instrument": "violin",
-    "status": "active",
-    "_id": "7ugcEsA6kisl4iNtrv6MGC6d994I0AANNIbpaN6cscLrpn"
-}, {
-    "name": "Máriás Mária",
-    "email": "mm@yahoo.com",
-    "instrument": "piano",
-    "status": "active",
-    "_id": "elzJnfjCrpgsBCmCibBFnGBBA6DgeENvg1ttMcLraFgeGs"
-}]
+[{"name":"Börcsök Botond","email":"bb@yahoo.com","instrument":"violin","status":"active","_id":"7ugcEsA6kisl4iNtrv6MGC6d994I0AANNIbpaN6cscLrpn"},{"name":"Máriás Mária","email":"mm@yahoo.com","instrument":"piano","status":"active","_id":"elzJnfjCrpgsBCmCibBFnGBBA6DgeENvg1ttMcLraFgeGs"},{"name":"László Iván","email":"ivan@freemail.hu","instrument":"guitar","status":"active","_id":"GFvDEB3jDBii2FfKoGpjCo53Ht8rADdgazv85Bbt39LKzG"},{"name":"Iván László","email":"laszlo@yahoo.com","instrument":"sax","status":"passive","_id":"pGlM9Kn6vLBDn0Lt27latIcsEom1ciauI9EvH7tGDvoFo8"}]

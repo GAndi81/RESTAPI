@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { Headers, RequestOptions } from '@angular/http';
+import { Instrument } from '../instrument';
+import { InstrumentService } from '../instrument.service';
 
 @Component({
   selector: 'app-instrument',
@@ -7,9 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstrumentComponent implements OnInit {
 
-  constructor() { }
+  instruments: Instrument[];
+
+  constructor(private http: HttpClient,
+    private instrumentService: InstrumentService) { }
 
   ngOnInit() {
+    this.instrumentService.getInstruments().subscribe(instruments => {
+      this.instruments = instruments;
+    });
   }
 
 }

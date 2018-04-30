@@ -1,3 +1,39 @@
-<p>
-  teacher works!
-</p>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="table">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Instrument</th>
+              <th>Status</th>
+              <th>ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            <td>
+              <div>
+                <button type="button" (click)="dataAdd(newRow)" class="btn btn-info btn-block"> Create New Teacher</button>
+              </div>
+            </td>
+            <tr *ngFor="let teacher of teachers">
+              <td>{{teacher.name}}</td>
+              <td>{{teacher.email}}</td>
+              <td>{{teacher.instrument}}</td>
+              <td>{{teacher.status}}</td>
+              <td>{{teacher._id}}</td>
+              <td>
+                <div class="btn-group btn-block">
+                  <button (click)="dataUpdate(teacher)" class="btn btn-secondary">Update</button>
+                  <button (click)="dataDelete(teacher)" class="btn btn-info">Delete</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div>

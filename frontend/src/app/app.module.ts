@@ -14,6 +14,10 @@ import { UserComponent } from './user/user.component';
 import { LocationComponent } from './location/location.component';
 
 import { UserService } from './user.service';
+import { TeacherService } from './teacher.service';
+import { ParentService } from './parent.service';
+import { LocationService } from './location.service';
+import { InstrumentService } from './instrument.service';
 
 const routes: Routes = [
   { path: '', component: InstrumentComponent, pathMatch: 'full' },
@@ -41,7 +45,11 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
-    UserService
+    UserService,
+    TeacherService,
+    ParentService,
+    LocationService,
+    InstrumentService
   ],
   bootstrap: [AppComponent]
 })

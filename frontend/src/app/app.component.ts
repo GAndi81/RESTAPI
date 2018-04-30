@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { Headers, RequestOptions } from '@angular/http';
 import { User } from './user';
 import { UserService } from './user.service';
+import { Teacher } from './teacher';
+import { TeacherService } from './teacher.service';
 
 @Component({
   selector: 'app-root',
