@@ -105,6 +105,7 @@ router.put('/:table/:id', function (req, res, next) {
             jsonData = JSON.parse(jsonData);
             for (let i = 0; i < jsonData.length; i++) {
                 if (jsonData[i]._id === req.params.id) {
+                    req.body._id = jsonData[i]._id;
                     jsonData[i] = req.body;
                     fs.writeFileSync(filePath, JSON.stringify(jsonData), 'utf8');
                     return res.json(jsonData[i]);
@@ -118,6 +119,7 @@ router.put('/:table/:id', function (req, res, next) {
 // Delete an object from json array
 
 router.delete('/:table/:id', function (req, res, next) {
+    const filePath = getDBPath(req.params.table);
     fs.readFile(
         getDBPath(req.params.table),
         'utf8', (err, jsonData) => {
@@ -129,13 +131,13 @@ router.delete('/:table/:id', function (req, res, next) {
             jsonData = JSON.parse(jsonData);
             let newArray = [];
             for (let i = 0; i < jsonData.length; i++) {
-                let obj = jsonData[i];
-                if (obj._id == req.params.id) {
-
-                    return 'Object deleted';
+                if (jsonData[i]._id !== req.params.id) {
+                    newArray.push(jsonData[i]);
+                    fs.writeFileSync(filePath, JSON.stringify(newArray), 'utf8');
+                    return res.json(newArray);
                 }
             }
-            return res.sendStatus(404);
+            return res.send();
         });
 });
 
