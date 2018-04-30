@@ -13,11 +13,26 @@
             </tr>
           </thead>
           <tbody>
-            <td>
-              <div>
-                <button type="button" (click)="dataAdd(newRow)" class="btn btn-info btn-block"> Create New Person</button>
-              </div>
-            </td>
+            <tr>
+              <td>
+                <input type="text" name="name" id="name" [(ngModel)]="user.name" class="form-control" />
+              </td>
+              <td>
+                <input type="text" name="email" id="email" [(ngModel)]="user.email" class="form-control" />
+              </td>
+              <td>
+                <input type="text" name="job" id="job" [(ngModel)]="user.job" class="form-control" />
+              </td>
+              <td>
+                <input type="text" name="address" id="address" [(ngModel)]="user.address" class="form-control" />
+              </td>
+              <td>#</td>
+              <td>
+                <div>
+                  <button type="button" (click)="dataAdd(newRow)" class="btn btn-info btn-block"> Create New Person</button>
+                </div>
+              </td>
+            </tr>
             <tr *ngFor="let user of users">
               <td>{{user.name}}</td>
               <td>{{user.email}}</td>
@@ -27,7 +42,7 @@
               <td>
                 <div class="btn-group btn-block">
                   <button (click)="dataUpdate(user)" class="btn btn-secondary">Update</button>
-                  <button (click)="dataDelete(user)" class="btn btn-info">Delete</button>
+                  <button (click)="delete(user._id)" class="btn btn-info">Delete</button>
                 </div>
               </td>
             </tr>

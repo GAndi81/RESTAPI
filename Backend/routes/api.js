@@ -136,8 +136,12 @@ router.delete('/:table/:id', function (req, res, next) {
                     newArray.push(jsonData[i]);
                 }
             }
-            fs.writeFileSync(filePath, JSON.stringify(newArray), 'utf8');
-            return res.send('Object deleted.');
+            if (jsonData.length > newArray.length) {
+                fs.writeFileSync(filePath, JSON.stringify(newArray), 'utf8');
+                return res.status(200).send('Object successfully deleted.');
+            } else {
+                return res.status(404).send('Object not found.');
+            }
         });
 });
 
