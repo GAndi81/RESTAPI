@@ -7,5 +7,9 @@ thead {
 }
 
 .table {
-  box-shadow: 10px 10px 40px 10px rgba(0, 0, 0, 0.20);
+  box-shadow: 10px 10px 40px 10px rgba(184, 241, 237, 0.541);
+}
+
+.td {
+  color: rgba(81, 190, 183, 0.541);
 }

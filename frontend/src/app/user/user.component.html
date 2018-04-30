@@ -5,30 +5,29 @@
         <table class="table table-hover table-striped">
           <thead>
             <tr>
-              <th *ngFor="let key of keys" (click)="sortTable(key)" class="sortKey">
-                {{ getHuman(key) }}
-              </th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Job</th>
+              <th>Address</th>
+              <th>ID</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td *ngFor="let user of users">
-                <input [(ngModel)]="newRow[key]" type="text" class="form-control">
-              </td>
+            <td>
+              <div>
+                <button type="button" (click)="dataAdd(newRow)" class="btn btn-info btn-block"> Create New Person</button>
+              </div>
+            </td>
+            <tr *ngFor="let user of users">
+              <td>{{user.name}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.job}}</td>
+              <td>{{user.address}}</td>
+              <td>{{user._id}}</td>
               <td>
-                <div>
-                  <button type="button" (click)="dataAdd(newRow)" class="btn btn-success btn-block"> Create New Person</button>
-                </div>
-              </td>
-            </tr>
-            <tr *ngFor="let row of tableData">
-              <td *ngFor="let key of keys">
-                <input [(ngModel)]="row.adat[key]" type="text" class="form-control">
-              </td>
-              <td>
-                <div class="btn-group">
-                  <button (click)="dataUpdate(row)" class="btn btn-primary">Update</button>
-                  <button (click)="dataDelete(row.key)" class="btn btn-danger">Delete</button>
+                <div class="btn-group btn-block">
+                  <button (click)="dataUpdate(user)" class="btn btn-secondary">Update</button>
+                  <button (click)="dataDelete(user)" class="btn btn-info">Delete</button>
                 </div>
               </td>
             </tr>
