@@ -14,9 +14,9 @@ export class UserService {
     return this.httpClient.get<User[]>(this.url);
   }
 
-  delete(Userid): Observable<Userid[]> {
+  delete(Userid): Observable<void> {
     console.log('Deleting ID: ' + Userid);
-    this.httpClient.delete<Userid[]>(this.urldelete + Userid);
+    return this.httpClient.delete<void>(this.urldelete + Userid);
   }
 
 }

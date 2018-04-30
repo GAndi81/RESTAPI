@@ -13,7 +13,8 @@ import { UserService } from '../user.service';
 export class UserComponent implements OnInit {
 
   users: User[];
-  userids: Userid[];
+
+  user = {};
 
   constructor(private http: HttpClient,
     private userService: UserService) { }
@@ -24,9 +25,9 @@ export class UserComponent implements OnInit {
     });
   }
 
-  delete() {
-    this.userService.delete(Userid).subscribe(userids => {
-      this.userids = userids;
+  delete(id) {
+    this.userService.delete(id).subscribe(data => {
+      this.ngOnInit();
     });
   }
 
