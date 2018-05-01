@@ -5,8 +5,7 @@ import { User } from './user';
 
 @Injectable()
 export class UserService {
-  private url = 'http://localhost:3000/api/user';
-  private urldelete = 'http://localhost:3000/api/user/';
+  private url = 'http://localhost:3000/api/user/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -16,7 +15,15 @@ export class UserService {
 
   delete(Userid): Observable<void> {
     console.log('Deleting ID: ' + Userid);
-    return this.httpClient.delete<void>(this.urldelete + Userid);
+    return this.httpClient.delete<void>(this.url + Userid);
+  }
+
+  save(user: User): Observable<User> {
+    if (user.id) {
+      return this.httpClient.put<User>(this.url + user.id, user);
+    } else {
+      return this.httpClient.post<User>(this.url, user);
+    }
   }
 
 }

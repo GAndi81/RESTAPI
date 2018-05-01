@@ -13,8 +13,7 @@ import { UserService } from '../user.service';
 export class UserComponent implements OnInit {
 
   users: User[];
-
-  user = {};
+  user = new User();
 
   constructor(private http: HttpClient,
     private userService: UserService) { }
@@ -31,4 +30,9 @@ export class UserComponent implements OnInit {
     });
   }
 
+  save(user) {
+    this.userService.save(user).subscribe(data => {
+      this.user = user;
+    });
+  }
 }
