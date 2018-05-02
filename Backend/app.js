@@ -13,7 +13,6 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "http://localhost:4200");
   res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE");
   res.header("Access-Control-Allow-Headers", "Content-Type");
-  //if (!req.user) return next(createError(401, 'Please login to view this page.'))
   next()
 });
 
