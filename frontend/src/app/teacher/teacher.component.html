@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-12">
       <div class="table">
-        <table class="table table-hover table-striped">
+        <table class="table table-hover">
           <thead>
             <tr>
               <th>Name</th>
@@ -13,11 +13,7 @@
             </tr>
           </thead>
           <tbody>
-            <td>
-              <div>
-                <button type="button" (click)="dataAdd(newRow)" class="btn btn-info btn-block"> Create New Teacher</button>
-              </div>
-            </td>
+            <tr></tr>
             <tr *ngFor="let teacher of teachers">
               <td>{{teacher.name}}</td>
               <td>{{teacher.email}}</td>
@@ -25,12 +21,61 @@
               <td>{{teacher.status}}</td>
               <td>{{teacher._id}}</td>
               <td>
+                <tr></tr>
                 <div class="btn-group btn-block">
-                  <button (click)="dataUpdate(teacher)" class="btn btn-secondary">Update</button>
-                  <button (click)="dataDelete(teacher)" class="btn btn-info">Delete</button>
+                  <button (click)="delete(teacher._id)" class="btn btn-info">Delete</button>
                 </div>
               </td>
             </tr>
+            <td>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+                Creation & Change
+              </button>
+            </td>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create & Update teacher</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <tr>
+                      <td>
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" [(ngModel)]="teacher.name" class="form-control" />
+                      </td>
+                      <td>
+                        <label for="name">Email</label>
+                        <input type="text" name="email" id="email" [(ngModel)]="teacher.email" class="form-control" />
+                      </td>
+                      <td>
+                        <label for="name">Instrument</label>
+                        <input type="text" name="instrument" id="instrument" [(ngModel)]="teacher.instrument" class="form-control" />
+                      </td>
+                      <td>
+                        <label for="name">Status</label>
+                        <input type="text" name="status" id="status" [(ngModel)]="teacher.status" class="form-control" />
+                      </td>
+                      <td>
+                        <label for="name">ID</label>
+                        <input type="text" name="id" id="id" [(ngModel)]="teacher.id" class="form-control" />
+                      </td>
+                    </tr>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button (click)="save(teacher)" type="button" class="btn btn-info">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </tbody>
         </table>
       </div>

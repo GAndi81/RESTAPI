@@ -13,6 +13,7 @@ import { TeacherService } from '../teacher.service';
 export class TeacherComponent implements OnInit {
 
   teachers: Teacher[];
+  teacher = new Teacher();
 
   constructor(private http: HttpClient,
     private teacherService: TeacherService) { }
@@ -20,6 +21,18 @@ export class TeacherComponent implements OnInit {
   ngOnInit() {
     this.teacherService.getTeachers().subscribe(teachers => {
       this.teachers = teachers;
+    });
+  }
+
+  delete(id) {
+    this.teacherService.delete(id).subscribe(data => {
+      this.ngOnInit();
+    });
+  }
+
+  save(teacher) {
+    this.teacherService.save(teacher).subscribe(data => {
+      this.ngOnInit();
     });
   }
 
