@@ -13,6 +13,7 @@ import { ParentService } from '../parent.service';
 export class ParentComponent implements OnInit {
 
   parents: Parent[];
+  parent = new Parent();
 
   constructor(private http: HttpClient,
     private parentService: ParentService) { }
@@ -20,6 +21,18 @@ export class ParentComponent implements OnInit {
   ngOnInit() {
     this.parentService.getParents().subscribe(parents => {
       this.parents = parents;
+    });
+  }
+
+  delete(id) {
+    this.parentService.delete(id).subscribe(data => {
+      this.ngOnInit();
+    });
+  }
+
+  save(parent) {
+    this.parentService.save(parent).subscribe(data => {
+      this.ngOnInit();
     });
   }
 

@@ -13,6 +13,7 @@ import { LocationService } from '../location.service';
 export class LocationComponent implements OnInit {
 
   locations: Location[];
+  location = new Location();
 
   constructor(private http: HttpClient,
     private locationService: LocationService) { }
@@ -20,6 +21,18 @@ export class LocationComponent implements OnInit {
   ngOnInit() {
     this.locationService.getLocations().subscribe(locations => {
       this.locations = locations;
+    });
+  }
+
+  delete(id) {
+    this.locationService.delete(id).subscribe(data => {
+      this.ngOnInit();
+    });
+  }
+
+  save(location) {
+    this.locationService.save(location).subscribe(data => {
+      this.ngOnInit();
     });
   }
 

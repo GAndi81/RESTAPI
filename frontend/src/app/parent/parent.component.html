@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-12">
       <div class="table">
-        <table class="table table-hover table-striped">
+        <table class="table table-hover">
           <thead>
             <tr>
               <th>Name</th>
@@ -13,11 +13,7 @@
             </tr>
           </thead>
           <tbody>
-            <td>
-              <div>
-                <button type="button" (click)="dataAdd(newRow)" class="btn btn-info btn-block"> Create New Parent</button>
-              </div>
-            </td>
+            <tr></tr>
             <tr *ngFor="let parent of parents">
               <td>{{parent.name}}</td>
               <td>{{parent.email}}</td>
@@ -26,11 +22,60 @@
               <td>{{parent._id}}</td>
               <td>
                 <div class="btn-group btn-block">
-                  <button (click)="dataUpdate(teacher)" class="btn btn-secondary">Update</button>
-                  <button (click)="dataDelete(teacher)" class="btn btn-info">Delete</button>
+                  <button (click)="delete(parent._id)" class="btn btn-info">Delete</button>
                 </div>
               </td>
             </tr>
+            <td>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+                Creation & Change
+              </button>
+            </td>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create & Update parent</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <tr>
+                      <td>
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" [(ngModel)]="parent.name" class="form-control" />
+                      </td>
+                      <td>
+                        <label for="name">Email</label>
+                        <input type="text" name="email" id="email" [(ngModel)]="parent.email" class="form-control" />
+                      </td>
+                      <td>
+                        <label for="name">Address</label>
+                        <input type="text" name="address" id="address" [(ngModel)]="parent.address" class="form-control" />
+                      </td>
+                      <td>
+                        <label for="name">Phone</label>
+                        <input type="text" name="phone" id="phone" [(ngModel)]="parent.phone" class="form-control" />
+                      </td>
+                      <td>
+                        <label for="name">ID</label>
+                        <input type="text" name="id" id="id" [(ngModel)]="parent.id" class="form-control" />
+                      </td>
+                    </tr>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button (click)="save(parent)" type="button" class="btn btn-info">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            
           </tbody>
         </table>
       </div>

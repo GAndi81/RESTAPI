@@ -13,4 +13,17 @@ export class ParentService {
     return this.httpClient.get<Parent[]>(this.url);
 
   }
+
+  delete(Parentid): Observable<void> {
+    console.log('Deleting ID: ' + Parentid);
+    return this.httpClient.delete<void>(this.url + Parentid);
+  }
+
+  save(parent: Parent): Observable<Parent> {
+    if (parent.id) {
+      return this.httpClient.put<Parent>(this.url + parent.id, parent);
+    } else {
+      return this.httpClient.post<Parent>(this.url, parent);
+    }
+  }
 }
