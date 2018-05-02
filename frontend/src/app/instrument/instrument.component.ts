@@ -13,6 +13,7 @@ import { InstrumentService } from '../instrument.service';
 export class InstrumentComponent implements OnInit {
 
   instruments: Instrument[];
+  instrument = new Instrument();
 
   constructor(private http: HttpClient,
     private instrumentService: InstrumentService) { }
@@ -20,6 +21,18 @@ export class InstrumentComponent implements OnInit {
   ngOnInit() {
     this.instrumentService.getInstruments().subscribe(instruments => {
       this.instruments = instruments;
+    });
+  }
+
+  delete(id) {
+    this.instrumentService.delete(id).subscribe(data => {
+      this.ngOnInit();
+    });
+  }
+
+  save(instrument) {
+    this.instrumentService.save(instrument).subscribe(data => {
+      this.ngOnInit();
     });
   }
 
