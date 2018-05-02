@@ -6,7 +6,7 @@ import { Parent } from './parent';
 @Injectable()
 export class ParentService {
 
-  private url = 'http://localhost:3000/api/parent';
+  private url = 'http://localhost:3000/api/parent/';
 
   constructor(private httpClient: HttpClient) { }
   getParents(): Observable<Parent[]> {

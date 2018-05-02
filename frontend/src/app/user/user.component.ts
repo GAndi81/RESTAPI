@@ -32,7 +32,7 @@ export class UserComponent implements OnInit {
 
   save(user) {
     this.userService.save(user).subscribe(data => {
-      this.user = user;
+      this.ngOnInit();
     });
   }
 }
